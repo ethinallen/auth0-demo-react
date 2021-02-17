@@ -1,0 +1,46 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { Auth0Provider } from '@auth0/auth0-react';
+
+import App from './App';
+import GlobalProvider from './context/Global';
+import history from './utils/BrowserHistory';
+import reportWebVitals from './reportWebVitals';
+import {
+  AUTH0_DOMAIN,
+  AUTH0_CLIENT_ID,
+  AUTH0_API_AUDIENCE,
+  AUTH0_CALLBACK_URL
+} from './utils/Constants';
+
+import './index.css';
+
+const onRedirectCallback = (appState) => {
+  history.push(
+    appState && appState.returnTo ? appState.returnTo : window.location.pathname
+  );
+};
+
+const options = {
+  domain: AUTH0_DOMAIN,
+  clientId: AUTH0_CLIENT_ID,
+  audience: AUTH0_API_AUDIENCE,
+  redirectUri: AUTH0_CALLBACK_URL,
+  onRedirectCallback: onRedirectCallback,
+  useRefreshTokens: true
+};
+
+ReactDOM.render(
+  <Auth0Provider {...options}>
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
+  </Auth0Provider>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
