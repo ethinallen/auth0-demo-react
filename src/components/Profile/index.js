@@ -211,26 +211,26 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="row row-cols-1 row-cols-md-2">
-        <div className="col mb-4">
+      <div className="row">
+        <div className="col-5 mb-4">
           <EncodedTokenCard
             token={state.profile.idToken}
             title="Encoded ID Token"
           />
         </div>
-        <div className="col mb-4">
+        <div className="col-7 mb-4">
           <DecodedTokenCard
             token={state.profile.idToken}
             title="Decoded ID Token"
           />
         </div>
-        <div className="col mb-4">
+        <div className="col-5 mb-4">
           <EncodedTokenCard
             token={state.profile.token}
             title="Encoded Access Token"
           />
         </div>
-        <div className="col mb-4">
+        <div className="col-7 mb-4">
           <DecodedTokenCard
             token={state.profile.token}
             title="Decoded Access Token"
