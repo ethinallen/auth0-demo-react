@@ -11,15 +11,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 import NavPrivate from './NavPrivate';
 import NavPublic from './NavPublic';
 
-import logo from '../../_images/logo.png';
+import logo from '../../_images/auth0-logo.png';
 
 const Logo = () => (
-  <img
-    className="align-top d-inline-block me-2"
-    height="30"
-    src={logo}
-    alt="logo"
-  />
+  <img className="d-inline-block mb-1 me-2" height="24" src={logo} alt="logo" />
 );
 
 const Header = () => {
@@ -34,7 +29,7 @@ const Header = () => {
         <Container>
           <NavbarBrand>
             <Logo />
-            Auth0 Demo SPA
+            Demo SPA
           </NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
