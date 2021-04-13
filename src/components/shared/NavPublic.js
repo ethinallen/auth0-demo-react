@@ -26,6 +26,13 @@ const NavPublic = () => {
     });
   };
 
+  const handleLoginOrg = () => {
+    loginWithRedirect({
+      ...options,
+      organization: 'org_SFjbVdiRqLcEobgk'
+    });
+  };
+
   const handleLoginPwdless = () => {
     loginWithRedirect({
       ...options,
@@ -90,6 +97,7 @@ const NavPublic = () => {
           <DropdownToggle caret>Log in</DropdownToggle>
           <DropdownMenu right>
             <DropdownItem onClick={handleLogin}>Log in</DropdownItem>
+            <DropdownItem onClick={handleLoginOrg}>Log in w/ org</DropdownItem>
             <DropdownItem onClick={handleLoginPwdless}>
               Log in w/ pwdless
             </DropdownItem>
