@@ -27,7 +27,7 @@ const Logo = () => {
 };
 
 const NavPrivate = () => {
-  const { user, logout } = useAuth0();
+  const { logout, user } = useAuth0();
 
   const handleChangePassword = async () => {};
 
