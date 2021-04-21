@@ -64,7 +64,11 @@ const reducer = (state, action) => {
 
 const Profile = () => {
   const { getAccessTokenSilently, getIdTokenClaims, user } = useAuth0();
-  const { errors, handleSubmit, register } = useForm();
+  const {
+    formState: { errors },
+    handleSubmit,
+    register
+  } = useForm();
   const [, dispatchGlobal] = useContext(GlobalContext);
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -115,24 +119,24 @@ const Profile = () => {
       <div className="row row-cols-1 row-cols-md-2">
         <div className="col mb-4">
           <div className="card h-100">
-            <div class="row g-0">
-              <div class="col-md-3">
+            <div className="row g-0">
+              <div className="col-md-3">
                 <img src={user.picture} alt={user.name} width="150" />
               </div>
-              <div class="col-md-9">
-                <div class="card-body">
-                  <h5 class="card-title">
+              <div className="col-md-9">
+                <div className="card-body">
+                  <h5 className="card-title">
                     {user.name}
                     <br />
                     <small className="text-muted">{user.email}</small>
                   </h5>
-                  <p class="card-text">
+                  <p className="card-text">
                     Auth0 stores user information for your tenant in a hosted
                     cloud database. Those users have access to applications
                     connected to that tenant. User profiles contain information
                     about your users such as name and contact information.
                   </p>
-                  <p class="card-text">
+                  <p className="card-text">
                     <small className="text-muted">
                       Last updated {updatedAt.toString()}.
                     </small>
@@ -145,20 +149,23 @@ const Profile = () => {
         <div className="col mb-4">
           <div className="card h-100">
             <div className="card-body">
-              <form onSubmit={handleSubmit(onSubmit)} noValidate>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-3">
                   <label className="form-label" htmlFor="given_name">
                     First name
                   </label>
                   <input
                     defaultValue={user.given_name}
-                    className="form-control"
-                    name="given_name"
                     id="given_name"
                     type="text"
-                    ref={register({
-                      required: 'Field is required.',
-                      maxLength: { value: 25, message: 'Max length is 25.' }
+                    className={
+                      errors?.given_name
+                        ? 'form-control is-invalid'
+                        : 'form-control'
+                    }
+                    {...register('given_name', {
+                      maxLength: { value: 25, message: 'Max length is 25.' },
+                      required: { value: true, message: 'Field is required.' }
                     })}
                   />
                   {showError(errors.given_name)}
@@ -169,13 +176,16 @@ const Profile = () => {
                   </label>
                   <input
                     defaultValue={user.family_name}
-                    className="form-control"
-                    name="family_name"
                     id="family_name"
                     type="text"
-                    ref={register({
-                      required: 'Field is required.',
-                      maxLength: { value: 25, message: 'Max length is 25.' }
+                    className={
+                      errors?.family_name
+                        ? 'form-control is-invalid'
+                        : 'form-control'
+                    }
+                    {...register('family_name', {
+                      maxLength: { value: 25, message: 'Max length is 25.' },
+                      required: { value: true, message: 'Field is required.' }
                     })}
                   />
                   {showError(errors.family_name)}
@@ -184,10 +194,9 @@ const Profile = () => {
                   <input
                     defaultChecked={JSON.parse(enableMfa || false)}
                     className="form-check-input"
-                    name="enableMfa"
                     id="enableMfa"
                     type="checkbox"
-                    ref={register()}
+                    {...register('enableMfa')}
                   />
                   <label className="form-check-label" htmlFor="enableMfa">
                     Enable MFA
