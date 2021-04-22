@@ -11,7 +11,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import NavPrivate from './NavPrivate';
 import NavPublic from './NavPublic';
 
-import logo from '../../_images/auth0-logo.png';
+import logo from '../../_images/logo-auth0.png';
 
 const Logo = () => (
   <img className="d-inline-block mb-1 me-2" height="24" src={logo} alt="logo" />

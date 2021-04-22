@@ -26,10 +26,17 @@ const NavPublic = () => {
     });
   };
 
-  const handleLoginOrg = () => {
+  const handleLoginCoke = () => {
     loginWithRedirect({
       ...options,
       organization: 'org_SFjbVdiRqLcEobgk'
+    });
+  };
+
+  const handleLoginPepsi = () => {
+    loginWithRedirect({
+      ...options,
+      organization: 'org_uEW3ZDNTjHIqG2eH'
     });
   };
 
@@ -97,12 +104,18 @@ const NavPublic = () => {
           <DropdownToggle caret>Log in</DropdownToggle>
           <DropdownMenu right>
             <DropdownItem onClick={handleLogin}>Log in</DropdownItem>
-            <DropdownItem onClick={handleLoginOrg}>Log in w/ org</DropdownItem>
             <DropdownItem onClick={handleLoginPwdless}>
               Log in w/ pwdless
             </DropdownItem>
             <DropdownItem onClick={handleLoginSaml}>
               Log in w/ SAML
+            </DropdownItem>
+            <DropdownItem header>Organizations</DropdownItem>
+            <DropdownItem onClick={handleLoginCoke}>
+              Log in w/ Coke
+            </DropdownItem>
+            <DropdownItem onClick={handleLoginPepsi}>
+              Log in w/ Pepsi
             </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
