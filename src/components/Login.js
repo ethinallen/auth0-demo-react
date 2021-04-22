@@ -9,7 +9,6 @@ const Login = () => {
   const { loginWithRedirect } = useAuth0();
 
   const invite = {};
-
   const invitation = query.get('invitation');
   const organization = query.get('organization');
 

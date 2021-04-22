@@ -13,6 +13,11 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAuth0 } from '@auth0/auth0-react';
 
+const orgs = {
+  COKE: 'org_SFjbVdiRqLcEobgk',
+  PEPSI: 'org_uEW3ZDNTjHIqG2eH'
+};
+
 const NavPublic = () => {
   const { loginWithRedirect } = useAuth0();
 
@@ -29,14 +34,14 @@ const NavPublic = () => {
   const handleLoginCoke = () => {
     loginWithRedirect({
       ...options,
-      organization: 'org_SFjbVdiRqLcEobgk'
+      organization: orgs.COKE
     });
   };
 
   const handleLoginPepsi = () => {
     loginWithRedirect({
       ...options,
-      organization: 'org_uEW3ZDNTjHIqG2eH'
+      organization: orgs.PEPSI
     });
   };
 
@@ -110,6 +115,7 @@ const NavPublic = () => {
             <DropdownItem onClick={handleLoginSaml}>
               Log in w/ SAML
             </DropdownItem>
+            <DropdownItem divider />
             <DropdownItem header>Organizations</DropdownItem>
             <DropdownItem onClick={handleLoginCoke}>
               Log in w/ Coke
