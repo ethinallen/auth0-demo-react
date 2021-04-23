@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useReducer } from 'react';
-import { Button, Table } from 'reactstrap';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -108,14 +107,14 @@ const Applications = () => {
         Retrieves a list of current applications registered with your tenant.
       </p>
       <div className="mb-3">
-        <Button className="me-2" color="primary" onClick={onLoad}>
+        <button className="btn btn-primary me-2" onClick={onLoad}>
           Get Applications
-        </Button>
-        <Button color="secondary" onClick={onReset}>
+        </button>
+        <button className="btn btn-secondary" onClick={onReset}>
           Reset
-        </Button>
+        </button>
       </div>
-      <Table>
+      <table className="table">
         <thead>
           <tr>
             <th data-column="name" onClick={onSort}>
@@ -153,7 +152,7 @@ const Applications = () => {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
     </React.Fragment>
   );
 };
