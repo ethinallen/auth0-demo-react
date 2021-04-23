@@ -1,11 +1,4 @@
-import React, { useState } from 'react';
-import {
-  Collapse,
-  Container,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand
-} from 'reactstrap';
+import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import NavPrivate from './NavPrivate';
@@ -19,24 +12,28 @@ const Logo = () => (
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <header>
-      <Navbar color="light" expand="md" fixed="top" light>
-        <Container>
-          <NavbarBrand>
+      <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <div className="container">
+          <a className="navbar-brand" href>
             <Logo />
             Demo SPA
-          </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarContent">
             {isAuthenticated ? <NavPrivate /> : <NavPublic />}
-          </Collapse>
-        </Container>
-      </Navbar>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 };
