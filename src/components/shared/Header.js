@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { useAuth0 } from '@auth0/auth0-react';
 
 import NavPrivate from './NavPrivate';
@@ -17,19 +19,19 @@ const Header = () => {
     <header>
       <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <div className="container">
-          <a className="navbar-brand" href>
+          <Link className="navbar-brand" to="/">
             <Logo />
             Demo SPA
-          </a>
+          </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarContent"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarContent">
+          <div className="collapse navbar-collapse" id="navbarContent">
             {isAuthenticated ? <NavPrivate /> : <NavPublic />}
           </div>
         </div>
