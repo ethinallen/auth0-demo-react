@@ -72,7 +72,7 @@ const Profile = () => {
   const [, dispatchGlobal] = useContext(GlobalContext);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const enableMfa = user['https://letsdoauth.com/enableMfa'];
+  const enableMfa = user['https://letsdoauth.com/enable_mfa'];
   const updatedAt = new Date(user.updated_at);
 
   // cleanup global state

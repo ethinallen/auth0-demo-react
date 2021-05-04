@@ -42,7 +42,7 @@ const updateUser = async (token, id, data) => {
         family_name: data.family_name,
         name: `${data.given_name} ${data.family_name}`,
         app_metadata: {
-          enableMfa: JSON.parse(data.enableMfa)
+          enable_mfa: JSON.parse(data.enableMfa)
         }
       })
     });
