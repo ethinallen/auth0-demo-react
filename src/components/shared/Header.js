@@ -21,7 +21,7 @@ const Header = () => {
         <div className="container">
           <Link className="navbar-brand" to="/">
             <Logo />
-            Demo SPA
+            Demo
           </Link>
           <button
             className="navbar-toggler"
