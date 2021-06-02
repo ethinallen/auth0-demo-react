@@ -55,7 +55,7 @@ const NavPublic = () => {
   const handleLoginSaml = () => {
     loginWithRedirect({
       ...options,
-      connection: 'dahbura-saml-auth0'
+      connection: 'dahbura-saml-okta'
     });
   };
 
