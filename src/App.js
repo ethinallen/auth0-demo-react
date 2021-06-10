@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 
 import { useAuth0 } from '@auth0/auth0-react';
@@ -17,7 +17,16 @@ import './App.css';
 initFontAwesome();
 
 const App = () => {
-  const { error, isLoading } = useAuth0();
+  const { error, getAccessTokenSilently, isLoading } = useAuth0();
+
+  useEffect(() => {
+    const getAccessToken = async () => {
+      try {
+        await getAccessTokenSilently();
+      } catch {}
+    };
+    getAccessToken();
+  }, []);
 
   if (isLoading) {
     return <Loading show />;
