@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 
 import { useAuth0 } from '@auth0/auth0-react';
@@ -18,17 +18,24 @@ initFontAwesome();
 
 const App = () => {
   const { error, getAccessTokenSilently, isLoading } = useAuth0();
+  const [checkingSession, setCheckingSession] = useState(true);
 
   useEffect(() => {
     const getAccessToken = async () => {
       try {
         await getAccessTokenSilently();
-      } catch {}
+        history.push('/private');
+      } catch (err) {
+        console.log(err.message);
+      } finally {
+        setCheckingSession(false);
+      }
     };
     getAccessToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (isLoading) {
+  if (isLoading || checkingSession) {
     return <Loading show />;
   }
 
