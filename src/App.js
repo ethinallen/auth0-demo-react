@@ -17,25 +17,32 @@ import './App.css';
 initFontAwesome();
 
 const App = () => {
-  const { error, getAccessTokenSilently, isLoading } = useAuth0();
-  const [checkingSession, setCheckingSession] = useState(true);
+  const { getAccessTokenSilently } = useAuth0();
+  const { error, isAuthenticated, isLoading } = useAuth0();
+  const [isCheckingSession, setIsCheckingSession] = useState(true);
 
   useEffect(() => {
-    const getAccessToken = async () => {
+    const checkSession = async () => {
       try {
         await getAccessTokenSilently();
         history.push('/private');
       } catch (err) {
-        console.log(err.message);
+        console.log(`${err.message}.`);
       } finally {
-        setCheckingSession(false);
+        setIsCheckingSession(false);
       }
     };
-    getAccessToken();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (isLoading) {
+      return;
+    }
+    if (isAuthenticated) {
+      setIsCheckingSession(false);
+      return;
+    }
+    checkSession();
+  }, [getAccessTokenSilently, isAuthenticated, isLoading]);
 
-  if (isLoading || checkingSession) {
+  if (isCheckingSession) {
     return <Loading show />;
   }
 
