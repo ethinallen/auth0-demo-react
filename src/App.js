@@ -21,6 +21,10 @@ const App = () => {
   const { error, isAuthenticated, isLoading } = useAuth0();
   const [isCheckingSession, setIsCheckingSession] = useState(true);
 
+  console.log('----------');
+  console.log(`isAuthenticated: ${isAuthenticated}`);
+  console.log(`isLoading: ${isLoading}`);
+
   useEffect(() => {
     const checkSession = async () => {
       try {
@@ -32,13 +36,18 @@ const App = () => {
         setIsCheckingSession(false);
       }
     };
+    console.log('Executing effect...');
     if (isLoading) {
+      console.log('Loading...');
       return;
     }
     if (isAuthenticated) {
+      console.log('Authenticated...');
       setIsCheckingSession(false);
+      history.push('/private');
       return;
     }
+    console.log('Checking session...');
     checkSession();
   }, [getAccessTokenSilently, isAuthenticated, isLoading]);
 
