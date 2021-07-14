@@ -27,8 +27,8 @@ const options = {
   clientId: AUTH0_CLIENT_ID,
   audience: AUTH0_API_AUDIENCE,
   redirectUri: AUTH0_CALLBACK_URL,
-  onRedirectCallback: onRedirectCallback,
-  useRefreshTokens: true
+  useRefreshTokens: false,
+  onRedirectCallback
 };
 
 ReactDOM.render(

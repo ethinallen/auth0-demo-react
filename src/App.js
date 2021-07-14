@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 
 import { useAuth0 } from '@auth0/auth0-react';
@@ -17,41 +17,9 @@ import './App.css';
 initFontAwesome();
 
 const App = () => {
-  const { getAccessTokenSilently } = useAuth0();
-  const { error, isAuthenticated, isLoading } = useAuth0();
-  const [isCheckingSession, setIsCheckingSession] = useState(true);
+  const { error, isLoading } = useAuth0();
 
-  console.log('----------');
-  console.log(`isAuthenticated: ${isAuthenticated}`);
-  console.log(`isLoading: ${isLoading}`);
-
-  useEffect(() => {
-    const checkSession = async () => {
-      try {
-        await getAccessTokenSilently();
-        history.push('/private');
-      } catch (err) {
-        console.log(`${err.message}.`);
-      } finally {
-        setIsCheckingSession(false);
-      }
-    };
-    console.log('Executing effect...');
-    if (isLoading) {
-      console.log('Loading...');
-      return;
-    }
-    if (isAuthenticated) {
-      console.log('Authenticated...');
-      setIsCheckingSession(false);
-      history.push('/private');
-      return;
-    }
-    console.log('Checking session...');
-    checkSession();
-  }, [getAccessTokenSilently, isAuthenticated, isLoading]);
-
-  if (isCheckingSession) {
+  if (isLoading) {
     return <Loading show />;
   }
 
