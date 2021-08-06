@@ -14,6 +14,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import { AUTH0_LOGOUT_URL } from '../../utils/Constants';
 
+const orgs = {
+  COKE: 'org_SFjbVdiRqLcEobgk',
+  PEPSI: 'org_uEW3ZDNTjHIqG2eH'
+};
+
 const Logo = () => {
   const { user } = useAuth0();
   return (
@@ -27,9 +32,23 @@ const Logo = () => {
 };
 
 const NavPrivate = () => {
-  const { logout, user } = useAuth0();
+  const { loginWithRedirect, logout, user } = useAuth0();
 
   const handleChangePassword = async () => {};
+
+  const handleLoginCoke = () => {
+    loginWithRedirect({
+      appState: { returnTo: window.location.pathname },
+      organization: orgs.COKE
+    });
+  };
+
+  const handleLoginPepsi = () => {
+    loginWithRedirect({
+      appState: { returnTo: window.location.pathname },
+      organization: orgs.PEPSI
+    });
+  };
 
   const handleLogout = () => {
     logout({
@@ -93,6 +112,14 @@ const NavPrivate = () => {
             </DropdownItem>
             <DropdownItem onClick={handleChangePassword}>
               Change password (email)
+            </DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem header>Organizations</DropdownItem>
+            <DropdownItem onClick={handleLoginCoke}>
+              Log in w/ Coke
+            </DropdownItem>
+            <DropdownItem onClick={handleLoginPepsi}>
+              Log in w/ Pepsi
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem onClick={handleLogout}>Log out</DropdownItem>
