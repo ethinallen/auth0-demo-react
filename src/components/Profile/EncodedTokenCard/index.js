@@ -7,7 +7,7 @@ const EncodedTokenCard = ({ token, title }) => (
     <div className="card-body">
       <h5 className="card-title">{title}</h5>
       <div className="card-text">
-        <Highlight className="rounded" language="text">
+        <Highlight className="rounded" language="plaintext">
           {token.encoded}
         </Highlight>
       </div>
