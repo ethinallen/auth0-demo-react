@@ -55,7 +55,7 @@ const NavPublic = () => {
   const handleLoginSaml = () => {
     loginWithRedirect({
       ...options,
-      connection: 'dahbura-saml-okta'
+      connection: 'dahbura-oidc-okta'
     });
   };
 
@@ -112,9 +112,7 @@ const NavPublic = () => {
             <DropdownItem onClick={handleLoginPwdless}>
               Log in w/ pwdless
             </DropdownItem>
-            <DropdownItem onClick={handleLoginSaml}>
-              Log in w/ SAML
-            </DropdownItem>
+            <DropdownItem onClick={handleLoginSaml}>Log in w/ SSO</DropdownItem>
             <DropdownItem divider />
             <DropdownItem header>Organizations</DropdownItem>
             <DropdownItem onClick={handleLoginCoke}>
