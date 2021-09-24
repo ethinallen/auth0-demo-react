@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import {
   DropdownItem,
   DropdownMenu,
@@ -9,6 +10,7 @@ import {
   NavLink,
   UncontrolledDropdown
 } from 'reactstrap';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAuth0 } from '@auth0/auth0-react';
 
