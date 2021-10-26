@@ -10,7 +10,7 @@ const createServiceUrl = (pathname, fields) => {
 };
 
 const getClients = async (token, fields) => {
-  const url = createServiceUrl('/api/clients', fields);
+  const url = createServiceUrl('/mgmt/clients', fields);
   try {
     const resp = await fetch(url, {
       method: 'GET',
@@ -29,7 +29,7 @@ const getClients = async (token, fields) => {
 };
 
 const updateUser = async (token, id, data) => {
-  const url = createServiceUrl(`/api/users/${id}`);
+  const url = createServiceUrl(`/mgmt/users/${id}`);
   try {
     const resp = await fetch(url, {
       method: 'PATCH',
