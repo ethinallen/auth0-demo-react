@@ -41,7 +41,7 @@
     "@testing-library/user-event": "^13.5.0",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.5.1",
-    "react-scripts": "4.0.3"
+    "react-scripts": "5.0.0"
   },
   "engines": {
     "node": "16",
