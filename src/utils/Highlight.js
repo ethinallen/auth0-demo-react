@@ -19,7 +19,7 @@ class Highlight extends React.Component {
 
     if (language && !registeredLanguages[language]) {
       try {
-        const newLanguage = require(`highlight.js/lib/languages/${language}`);
+        const newLanguage = require(`../../node_modules/highlight.js/lib/languages/${language}`);
         hljs.registerLanguage(language, newLanguage);
         registeredLanguages[language] = true;
 
