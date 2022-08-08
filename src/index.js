@@ -31,7 +31,8 @@ const options = {
   onRedirectCallback
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElem = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElem);
 
 root.render(
   <Auth0Provider {...options}>
