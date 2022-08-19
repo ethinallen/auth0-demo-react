@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import pic from '../_images/exp_univ_login_hero.svg';
+import { PATH_CDN } from '../utils/Constants';
 
 const Home = () => (
   <div className="row">
@@ -23,7 +23,7 @@ const Home = () => (
       <img
         className="d-none d-lg-block float-right"
         width="100%"
-        src={pic}
+        src={PATH_CDN + '/images/exp_univ_login_hero.svg'}
         alt=""
       />
     </div>

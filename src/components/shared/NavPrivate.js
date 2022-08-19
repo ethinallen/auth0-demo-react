@@ -105,7 +105,7 @@ const NavPrivate = () => {
             <Logo />
             {user.email}
           </DropdownToggle>
-          <DropdownMenu right>
+          <DropdownMenu end>
             <DropdownItem tag={Link} to="/private/profile">
               Profile
             </DropdownItem>

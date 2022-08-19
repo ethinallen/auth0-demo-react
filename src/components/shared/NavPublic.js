@@ -109,7 +109,7 @@ const NavPublic = () => {
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle caret>Log in</DropdownToggle>
-          <DropdownMenu right>
+          <DropdownMenu end>
             <DropdownItem onClick={handleLogin}>Log in</DropdownItem>
             <DropdownItem onClick={handleLoginPwdless}>
               Log in w/ pwdless

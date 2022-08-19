@@ -10,6 +10,7 @@ const AUTH0_LOGOUT_URL = process.env.REACT_APP_AUTH0_LOGOUT_URL || '';
 const AUTH0_API_ENDPOINT = process.env.REACT_APP_AUTH0_API_ENDPOINT || '';
 const AUTH0_API_AUDIENCE = process.env.REACT_APP_AUTH0_API_AUDIENCE || '';
 const AUTH0_SCOPES = process.env.REACT_APP_AUTH0_SCOPES || '';
+const PATH_CDN = process.env.REACT_APP_PATH_CDN || '';
 
 const CLAIMS = {
   connection: `${NS}/connection`,
@@ -33,5 +34,6 @@ export {
   AUTH0_API_ENDPOINT,
   AUTH0_SCOPES,
   CLAIMS,
+  PATH_CDN,
   SORT_DIR
 };
