@@ -50,7 +50,7 @@ const NavPublic = () => {
   const handleLoginPwdless = () => {
     loginWithRedirect({
       ...options,
-      passwordless: true
+      connection: 'email'
     });
   };
 
