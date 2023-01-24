@@ -36,35 +36,45 @@ const NavPublic = () => {
   const handleLoginCoke = () => {
     loginWithRedirect({
       ...options,
-      organization: orgs.COKE
+      authorizationParams: {
+        organization: orgs.COKE
+      }
     });
   };
 
   const handleLoginPepsi = () => {
     loginWithRedirect({
       ...options,
-      organization: orgs.PEPSI
+      authorizationParams: {
+        organization: orgs.PEPSI
+      }
     });
   };
 
   const handleLoginPwdless = () => {
     loginWithRedirect({
       ...options,
-      connection: 'email'
+      authorizationParams: {
+        connection: 'sms'
+      }
     });
   };
 
   const handleLoginSaml = () => {
     loginWithRedirect({
       ...options,
-      connection: 'dahbura-oidc-okta'
+      authorizationParams: {
+        connection: 'dahbura-oidc-okta'
+      }
     });
   };
 
   const handleSignUp = () => {
     loginWithRedirect({
       ...options,
-      screen_hint: 'signup'
+      authorizationParams: {
+        screen_hint: 'signup'
+      }
     });
   };
 

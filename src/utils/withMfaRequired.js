@@ -28,7 +28,9 @@ const withMfaRequired = (Component) => (props) => {
     const challengeMfa = async () => {
       await loginWithRedirect({
         ...options,
-        acr_values: ACR_VALUES
+        authorizationParams: {
+          acr_values: ACR_VALUES
+        }
       });
     };
     hasMfa !== undefined && !hasMfa && challengeMfa();

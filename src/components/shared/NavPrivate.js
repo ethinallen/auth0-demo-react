@@ -41,14 +41,18 @@ const NavPrivate = () => {
   const handleLoginCoke = () => {
     loginWithRedirect({
       appState: { returnTo: window.location.pathname },
-      organization: orgs.COKE
+      authorizationParams: {
+        organization: orgs.COKE
+      }
     });
   };
 
   const handleLoginPepsi = () => {
     loginWithRedirect({
       appState: { returnTo: window.location.pathname },
-      organization: orgs.PEPSI
+      authorizationParams: {
+        organization: orgs.PEPSI
+      }
     });
   };
 
