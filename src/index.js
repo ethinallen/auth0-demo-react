@@ -25,10 +25,11 @@ const onRedirectCallback = (appState) => {
 const options = {
   domain: AUTH0_DOMAIN,
   clientId: AUTH0_CLIENT_ID,
-  audience: AUTH0_API_AUDIENCE,
-  redirectUri: AUTH0_CALLBACK_URL,
-  useRefreshTokens: false,
-  onRedirectCallback
+  onRedirectCallback,
+  authorizationParams: {
+    audience: AUTH0_API_AUDIENCE,
+    redirect_uri: AUTH0_CALLBACK_URL
+  }
 };
 
 const rootElem = document.getElementById('root');
