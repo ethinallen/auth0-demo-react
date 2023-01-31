@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
@@ -9,23 +9,14 @@ import Profile from '../Profile';
 import Secret from '../Secret';
 
 const LayoutPrivate = () => {
-  const { path } = useRouteMatch();
   return (
     <React.Fragment>
-      <Switch>
-        <Route path={path} exact>
-          <Applications />
-        </Route>
-        <Route path={`${path}/profile`}>
-          <Profile />
-        </Route>
-        <Route path={`${path}/secret`}>
-          <Secret />
-        </Route>
-        <Route path="*">
-          <NoMatch />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<Applications />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="secret" element={<Secret />} />
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
     </React.Fragment>
   );
 };

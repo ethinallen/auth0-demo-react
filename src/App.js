@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Router, Switch } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -9,7 +9,6 @@ import Layout from './components/shared/Layout';
 import Loading from './components/Loading';
 import Login from './components/Login';
 
-import history from './utils/BrowserHistory';
 import initFontAwesome from './utils/FontAwesome';
 
 import './App.css';
@@ -26,23 +25,13 @@ const App = () => {
   return (
     <React.Fragment>
       <Loading />
-      <Router history={history}>
-        {error && <Redirect to="/error" />}
-        <Switch>
-          <Route path="/callback">
-            <Callback />
-          </Route>
-          <Route path="/callback-idp">
-            <CallbackIdp />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="*">
-            <Layout />
-          </Route>
-        </Switch>
-      </Router>
+      {error && <Navigate to="/error" />}
+      <Routes>
+        <Route path="/callback" element={<Callback />} />
+        <Route path="/callback-idp" element={<CallbackIdp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/*" element={<Layout />} />
+      </Routes>
     </React.Fragment>
   );
 };

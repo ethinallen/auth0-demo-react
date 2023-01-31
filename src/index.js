@@ -1,46 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
-import { Auth0Provider } from '@auth0/auth0-react';
+import Auth0ProviderWithNavigate from './Auth0ProviderWithNavigate';
 
 import App from './App';
 import GlobalProvider from './context/Global';
-import history from './utils/BrowserHistory';
 import reportWebVitals from './reportWebVitals';
-import {
-  AUTH0_DOMAIN,
-  AUTH0_CLIENT_ID,
-  AUTH0_API_AUDIENCE,
-  AUTH0_CALLBACK_URL
-} from './utils/Constants';
 
 import './index.css';
-
-const onRedirectCallback = (appState) => {
-  history.push(
-    appState && appState.returnTo ? appState.returnTo : window.location.pathname
-  );
-};
-
-const options = {
-  domain: AUTH0_DOMAIN,
-  clientId: AUTH0_CLIENT_ID,
-  onRedirectCallback,
-  authorizationParams: {
-    audience: AUTH0_API_AUDIENCE,
-    redirect_uri: AUTH0_CALLBACK_URL
-  }
-};
 
 const rootElem = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElem);
 
 root.render(
-  <Auth0Provider {...options}>
-    <GlobalProvider>
-      <App />
-    </GlobalProvider>
-  </Auth0Provider>
+  <BrowserRouter>
+    <Auth0ProviderWithNavigate>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </Auth0ProviderWithNavigate>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

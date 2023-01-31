@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import LayoutPrivate from './LayoutPrivate';
 import Alerts from './Alerts';
@@ -18,23 +18,13 @@ const Layout = () => (
     <main className="flex-shrink-0">
       <div className="container">
         <Alerts />
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/about-us">
-            <AboutUs />
-          </Route>
-          <Route path="/error">
-            <Error />
-          </Route>
-          <Route path="/private">
-            <LayoutPrivate />
-          </Route>
-          <Route path="*">
-            <NoMatch />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/error" element={<Error />} />
+          <Route path="/private/*" element={<LayoutPrivate />} />
+          <Route path="/*" element={<NoMatch />} />
+        </Routes>
       </div>
     </main>
     <Footer />
