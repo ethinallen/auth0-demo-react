@@ -55,7 +55,7 @@ const NavPublic = () => {
     loginWithRedirect({
       ...options,
       authorizationParams: {
-        connection: 'sms'
+        connection: 'email'
       }
     });
   };
@@ -124,7 +124,7 @@ const NavPublic = () => {
           <DropdownMenu end>
             <DropdownItem onClick={handleLogin}>Log in</DropdownItem>
             <DropdownItem onClick={handleLoginPwdless}>
-              Log in w/ pwdless
+              Log in - Passwordless
             </DropdownItem>
             <DropdownItem onClick={handleLoginSaml}>Log in w/ SSO</DropdownItem>
             <DropdownItem divider />

@@ -10,19 +10,18 @@ const Secret = () => (
       factor.
     </p>
     <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-      dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-      nec, pellentesque eu, pretium quis, sem.
+      When it comes to sensitive actions like viewing financial information or using administrative privileges, 
+      having a second factor of authentication is crucial to prevent unauthorized access. 
+      With just a password, an attacker who has obtained your credentials can gain access to your account 
+      and potentially steal sensitive information or perform malicious actions. 
     </p>
     <p>
-      Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-      nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-      venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-      Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
-      vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
-      vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
-      feugiat a.
+      However, with 2FA enabled, an attacker would also need physical access to your device 
+      or access to the authentication app in order to gain access, significantly reducing 
+      the risk of unauthorized access.By requiring an additional piece of information beyond 
+      just a username and password, 2FA helps ensure that only authorized users have access 
+      to sensitive data and system functionalities. As such, it is highly recommended to enable 
+      2FA wherever possible to provide an extra layer of protection for organizations and their users.
     </p>
   </React.Fragment>
 );

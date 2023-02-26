@@ -12,8 +12,12 @@ const Home = () => (
         But not just anyone.
       </h1>
       <p className="lead mb-4">
-        Whether you’re a developer looking to innovate or a security
-        professional looking to mitigate, we make identity work for everyone.
+        Auth0 is an industry-leading identity management platform that provides secure user 
+        authentication and authorization services for web, mobile, and legacy applications. 
+        With support for social logins and integration with various programming languages and 
+        frameworks, Auth0 enables developers and security professionals to easily implement 
+        multifactor authentication and other advanced security features. With Auth0, you can 
+        ensure secure access for everyone, but not just anyone.
       </p>
       <Link className="btn btn-pill btn-primary" role="button" to="/">
         Learn more
