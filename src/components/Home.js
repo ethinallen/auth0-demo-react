@@ -19,7 +19,7 @@ const Home = () => (
         multifactor authentication and other advanced security features. With Auth0, you can 
         ensure secure access for everyone, but not just anyone.
       </p>
-      <Link className="btn btn-pill btn-primary" role="button" to="/">
+      <Link className="btn btn-pill btn-primary" role="button" to="/learn-more">
         Learn more
       </Link>
     </div>

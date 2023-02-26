@@ -126,7 +126,7 @@ const NavPublic = () => {
             <DropdownItem onClick={handleLoginPwdless}>
               Log in - Passwordless
             </DropdownItem>
-            <DropdownItem onClick={handleLoginSaml}>Log in w/ SSO</DropdownItem>
+            <DropdownItem onClick={handleLoginSaml}>Log in - SSO</DropdownItem>
             <DropdownItem divider />
             <DropdownItem header>Organizations</DropdownItem>
             <DropdownItem onClick={handleLoginCoke}>

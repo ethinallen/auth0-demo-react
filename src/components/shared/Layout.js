@@ -8,6 +8,7 @@ import Header from './Header';
 import Footer from './Footer';
 
 import AboutUs from '../AboutUs';
+import LearnMore from '../LearnMore';
 import Error from '../Error';
 import Home from '../Home';
 import NoMatch from '../NoMatch';
@@ -21,6 +22,7 @@ const Layout = () => (
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/learn-more" element={<LearnMore />} />
           <Route path="/error" element={<Error />} />
           <Route path="/private/*" element={<LayoutPrivate />} />
           <Route path="/*" element={<NoMatch />} />
