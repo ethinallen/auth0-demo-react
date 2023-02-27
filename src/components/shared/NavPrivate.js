@@ -83,6 +83,12 @@ const NavPrivate = () => {
             Secret
           </NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to="/about-us">
+              About Us
+          </NavLink>
+        </NavItem>
+
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle nav caret>
             IdP Initiated

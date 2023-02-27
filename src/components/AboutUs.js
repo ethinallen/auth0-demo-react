@@ -2,6 +2,7 @@ import React from 'react';
 
 const AboutUs = () => (
   <React.Fragment>
+    <div className="col-lg-8">
     <h2>About Us</h2>
     <p>
       Auth0 was founded in 2013 by Eugenio Pace and Matias Woloski, 
@@ -60,7 +61,7 @@ const AboutUs = () => (
     Together, we are committed to delivering secure, easy-to-use identity solutions that enable 
     businesses to focus on what they do best - serving their customers and driving growth.
     </p>
-
+  </div>
   </React.Fragment>
 );
 

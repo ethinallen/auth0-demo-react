@@ -4,6 +4,8 @@ import withMfaRequired from '../utils/withMfaRequired';
 
 const Secret = () => (
   <React.Fragment>
+        <div className="col-lg-8">
+
     <h2>Secret</h2>
     <p className="lead">
       This resource is only accessible by providing a second authentication
@@ -23,6 +25,7 @@ const Secret = () => (
       to sensitive data and system functionalities. As such, it is highly recommended to enable 
       2FA wherever possible to provide an extra layer of protection for organizations and their users.
     </p>
+  </div>
   </React.Fragment>
 );
 
